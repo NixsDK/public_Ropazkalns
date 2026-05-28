@@ -1,0 +1,255 @@
+/* About / Personal data & Terms — wireframe + photo hero reference */
+
+.rules-page {
+    min-height: 100vh;
+    background: #ede8d0;
+    padding-bottom: 3rem;
+}
+
+.rules-page .container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Legal pages — same tight hero + flush subnav as Activities */
+.rules-page .rules-hero {
+    margin-bottom: 0;
+}
+
+.rules-page .rules-hero-overlay {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+}
+
+.rules-page .rules-subnav--split {
+    margin-bottom: 1.5rem;
+}
+
+.rules-page .rules-body {
+    padding-top: 0;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 3rem;
+}
+
+/* Photo hero also used on Gallery & Contacts — keep spacing above main content */
+.gallery-page .rules-hero {
+    margin-bottom: 2.5rem;
+}
+
+/* Rentals/ — hero strip before rental-section content */
+.rental-with-hero .rules-hero {
+    margin-bottom: 2rem;
+}
+
+.rental-with-hero .rules-hero-overlay {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+}
+
+/* Activities listing + detail — tight gap under hero before subnav */
+.activities-around-page .rules-hero {
+    margin-bottom: 0;
+}
+
+.activities-around-page .rules-hero-overlay {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+}
+
+/* Hero: nature photo + white title (reference site style) */
+.rules-hero {
+    position: relative;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.rules-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/Forest.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.55);
+}
+
+.rules-hero-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2.5rem 1.25rem;
+    text-align: center;
+    width: 100%;
+}
+
+.rules-hero-logo {
+    width: min(120px, 28vw);
+    height: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+}
+
+.rules-hero-title {
+    margin: 0;
+    max-width: 960px;
+    font-size: clamp(1.15rem, 3.5vw, 1.75rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Two-button subnav — same beige as page (no white strip); active = site green */
+.rules-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    background: #ede8d0;
+    border: none;
+    gap: 0.5rem;
+    padding: 0 0 0.75rem;
+}
+
+.rules-subnav-btn {
+    flex: 1;
+    min-width: min(100%, 280px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 1rem;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+    color: #ffffff;
+    background: #4a4f55;
+    border: none;
+    outline: none;
+    font-family: var(--font-primary);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.rules-subnav-btn:focus-visible {
+    outline: 2px solid #5d8a54;
+    outline-offset: 2px;
+}
+
+.rules-subnav-btn:hover {
+    background: #5c636a;
+    color: #ffffff;
+}
+
+.rules-subnav-btn.is-active {
+    background: #5d8a54;
+    color: #ffffff;
+}
+
+.rules-subnav-btn.is-active:hover {
+    background: #4a7542;
+}
+
+/* Full-width flush strip + black divider (Activities Apkārt / Ropažkalnā — same idea as legal subnav) */
+.rules-subnav--split {
+    gap: 0;
+    padding: 0;
+    background: transparent;
+    width: 100%;
+}
+
+.activities-around-page .rules-subnav--split {
+    margin-bottom: 1.5rem;
+}
+
+.rules-subnav--split .rules-subnav-btn {
+    border-radius: 0;
+    min-width: 0;
+    flex: 1 1 50%;
+}
+
+.rules-subnav--split .rules-subnav-btn:first-child {
+    border-right: 1px solid #000000;
+}
+
+@media (max-width: 576px) {
+    .rules-subnav--split .rules-subnav-btn {
+        flex: 1 1 100%;
+    }
+
+    .rules-subnav--split .rules-subnav-btn:first-child {
+        border-right: none;
+        border-bottom: 1px solid #000000;
+    }
+}
+
+/* Beige page body + white content card */
+.rules-body {
+    padding: 2rem 1.25rem 3rem;
+    background: #ede8d0;
+}
+
+.rules-content-box {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 2rem 1.75rem 2.25rem;
+    color: #1e293b;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.rules-content-box .rules-lead {
+    margin: 0 0 1.25rem;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.rules-content-box h2 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    font-family: var(--font-primary);
+}
+
+.rules-content-box h2:first-of-type {
+    margin-top: 0;
+}
+
+.rules-content-box p {
+    margin: 0 0 1rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.rules-content-box p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+    .rules-hero {
+        min-height: 200px;
+    }
+
+    .rules-subnav-btn {
+        flex: 1 1 100%;
+    }
+
+    .rules-content-box {
+        padding: 1.5rem 1.25rem;
+    }
+}

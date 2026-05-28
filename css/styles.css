@@ -1,0 +1,640 @@
+.info-box {
+    background: #ffffff;
+    border-left: 6px solid #1a5f1a;
+    padding: 32px 28px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(26, 95, 26, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(180deg, #1a5f1a, #2d8f2d);
+    border-radius: 3px;
+}
+
+.rental-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #1a5f1a, #2d8f2d, #1a5f1a);
+}
+
+.card-label::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #1a5f1a, #2d8f2d);
+    transition: width 0.3s ease;
+}
+
+.card-details li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #1a5f1a;
+    font-weight: bold;
+}
+
+/* Navbar toggler */
+
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(34, 139, 34, 0.25);
+}
+
+
+/* Button loading states */
+.btn-rent.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-rent.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.btn-rent:focus {
+    outline: 2px solid #1a5f1a;
+    outline-offset: 2px;
+}
+
+.btn-rent:active {
+    transform: translateY(1px);
+}
+
+/* =========================================================
+   1. GLOBAL VARIABLES & FONTS
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+:root {
+    /* ===== COLOR PALETTE ===== */
+    --brand-beige: #EDE8D0;
+    --brand-brown: #8B4513;
+    --brand-green: #508c39;
+    --brand-dark-text: #333333;
+    --brand-light-text: #ffffff;
+
+    /* ===== GLASS MORPHISM EFFECTS ===== */
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-blur: blur(10px);
+    --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== BODY STYLING ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--brand-beige);
+    color: var(--brand-dark-text);
+}
+
+/* =========================================================
+   2. NAVBAR - THE GLASS HEAD (Desktop)
+   ========================================================= */
+
+/* ===== MAIN NAVBAR CONTAINER ===== */
+.navbar {
+    background-color: var(--glass-bg) !important;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    padding: 10px 0;
+    z-index: 1045;
+}
+
+/* ===== NAVBAR LAYOUT ===== */
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+/* ===== HAMBURGER BUTTON VISIBILITY ===== */
+.navbar-toggler.custom-toggler {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.navbar-expand-lg .navbar-toggler.custom-toggler {
+    display: flex !important;
+}
+
+/* ===== OFFCANVAS BACKDROP ===== */
+.offcanvas-backdrop {
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1040;
+}
+
+/* ===== LOGO STYLING ===== */
+.navbar-brand img {
+    height: 55px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== DEFAULT HAMBURGER TOGGLER ===== */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* ===== HAMBURGER ICON ===== */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(139, 69, 19, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+    transform: scale(1.1);
+}
+
+/* ===== NAVIGATION LINKS ===== */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    font-size: var(--text-nav);
+    color: var(--brand-dark-text) !important;
+    padding: 10px 16px !important;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* ===== NAV LINK HOVER EFFECT ===== */
+.navbar-nav .nav-link:hover {
+    color: var(--brand-brown) !important;
+    transform: translateY(-2px);
+    background-color: rgba(139, 69, 19, 0.05);
+    border-radius: 8px;
+}
+
+/* ===== GRADIENT UNDERLINE ANIMATION ===== */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--brand-brown), var(--brand-green));
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
+}
+
+/* Driving directions link sits next to the logo (not inside .navbar-nav) */
+.navbar .container-fluid > .d-flex > a.nav-link {
+    color: var(--brand-dark-text) !important;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--text-nav);
+    padding: 10px 16px !important;
+    transition: color 0.3s ease;
+}
+
+.navbar .container-fluid > .d-flex > a.nav-link:hover {
+    color: var(--brand-brown) !important;
+}
+
+/* ===== DROPDOWN MENUS (Desktop only - 992px+) ===== */
+@media (min-width: 992px) {
+    .dropdown-menu {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(139, 69, 19, 0.15);
+        border: 1px solid rgba(139, 69, 19, 0.1);
+        backdrop-filter: blur(15px);
+        margin-top: 15px;
+        animation: fadeUp 0.3s ease forwards;
+        opacity: 0;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+    }
+
+    @keyframes fadeUp {
+        from {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* ===== DROPDOWN MENU ITEMS ===== */
+.dropdown-item {
+    color: #2D5016;
+    padding: 10px 20px;
+    transition: all 0.2s;
+}
+
+/* ===== DROPDOWN ITEM HOVER EFFECT ===== */
+.dropdown-item:hover {
+    background: linear-gradient(135deg, var(--brand-brown) 0%, var(--brand-green) 100%);
+    color: white !important;
+    padding-left: 25px;
+}
+
+/* =========================================================
+   3. SIDEBAR / OFFCANVAS (site nav + info — beige + forest strip)
+   ========================================================= */
+
+.offcanvas {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.offcanvas-site-nav.offcanvas-end {
+    border-left: 1px solid rgba(80, 140, 57, 0.22);
+    background: var(--brand-beige) !important;
+    width: min(400px, 92vw) !important;
+    max-width: 92vw !important;
+}
+
+.offcanvas.show {
+    visibility: visible !important;
+    transform: translateX(0) !important;
+}
+
+/* Forest strip (same idea as .rules-hero on inner pages) */
+.offcanvas-hero-strip {
+    position: relative;
+    min-height: 88px;
+    overflow: hidden;
+}
+
+.offcanvas-hero-strip__bg {
+    position: absolute;
+    inset: 0;
+    background: url("../images/Forest.jpg") center / cover no-repeat;
+    filter: brightness(0.48);
+}
+
+.offcanvas-hero-strip__row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+}
+
+.offcanvas-hero-logo {
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+.offcanvas-hero-heading {
+    font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.offcanvas-site-nav .btn-close:hover {
+    transform: rotate(90deg);
+    opacity: 1;
+}
+
+.offcanvas-site-nav .offcanvas-body {
+    padding: 1rem 1.1rem 1.5rem;
+}
+
+.offcanvas-nav-top {
+    display: block;
+    padding: 0.65rem 0.15rem;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: var(--brand-dark-text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(80, 140, 57, 0.18);
+}
+
+.offcanvas-nav-top:hover {
+    color: #508c39;
+}
+
+.offcanvas-nav-accordion .accordion-item {
+    background: transparent;
+    border-color: rgba(80, 140, 57, 0.2);
+}
+
+.offcanvas-nav-accordion .accordion-button {
+    padding: 0.65rem 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--brand-dark-text);
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: none;
+}
+
+.offcanvas-nav-accordion .accordion-button:not(.collapsed) {
+    color: #3d5c33;
+    background: rgba(93, 138, 84, 0.12);
+}
+
+.offcanvas-nav-accordion .accordion-button::after {
+    filter: brightness(0.35);
+}
+
+.offcanvas-nav-accordion .accordion-body {
+    padding: 0.35rem 0 0.65rem;
+}
+
+.offcanvas-nav-sublink {
+    display: block;
+    padding: 0.45rem 0.75rem 0.45rem 1rem;
+    font-size: 0.9rem;
+    color: #3d5c33;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.offcanvas-nav-sublink:hover {
+    background: rgba(80, 140, 57, 0.1);
+    color: #2d5016;
+}
+
+.offcanvas-nav-actions {
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(80, 140, 57, 0.18);
+}
+
+.offcanvas-nav-actions .nav-action-btn {
+    flex: 1 1 calc(50% - 0.35rem);
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 0.55em 0.65em;
+    min-width: 0;
+}
+
+.offcanvas-divider {
+    border-color: rgba(80, 140, 57, 0.22);
+    opacity: 1;
+}
+
+.offcanvas-site-nav .offcanvas-description p {
+    color: var(--brand-dark-text) !important;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 400;
+}
+
+.offcanvas-image {
+    margin: 0.75rem 0 0;
+}
+
+.offcanvas-thumb-img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(80, 140, 57, 0.15);
+}
+
+.offcanvas-site-nav .offcanvas-contact {
+    border-top-color: rgba(80, 140, 57, 0.22) !important;
+}
+
+.offcanvas-site-nav .offcanvas-contact h6 {
+    font-size: var(--text-body);
+    font-weight: 700;
+    color: #2c3e50 !important;
+}
+
+.offcanvas-site-nav .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #4a5568 !important;
+}
+
+.offcanvas-site-nav .contact-item i {
+    margin-top: 3px;
+    width: 20px;
+    flex-shrink: 0;
+    color: #508c39 !important;
+}
+
+.offcanvas-site-nav .contact-item a {
+    color: #4a5568 !important;
+    font-weight: 500;
+}
+
+.offcanvas-site-nav .contact-item a:hover {
+    color: #508c39 !important;
+}
+
+.offcanvas-site-nav .social-icons a {
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.15rem;
+    background: rgba(80, 140, 57, 0.12);
+    color: #3d5c33 !important;
+    text-decoration: none;
+}
+
+.offcanvas-site-nav .social-icons a:hover {
+    background: #508c39;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.offcanvas-site-nav .offcanvas-body .lang-btn {
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: var(--brand-brown) !important;
+    border: 1px solid rgba(80, 140, 57, 0.28);
+}
+
+.offcanvas-site-nav .offcanvas-body .lang-btn:hover {
+    background: var(--brand-brown) !important;
+    color: #ffffff !important;
+    border-color: var(--brand-brown);
+}
+
+/* =========================================================
+   4. EXTRAS
+   ========================================================= */
+
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-btn {
+    text-decoration: none;
+    color: var(--brand-brown);
+    font-weight: var(--font-semibold);
+    background: rgba(139, 69, 19, 0.1);
+    padding: 2px 6px;
+    border-radius: 20px;
+    margin: 0 5px;
+    transition: 0.3s;
+    font-size: 0.75rem;
+}
+
+.lang-btn:hover {
+    background: var(--brand-brown);
+    color: #fff;
+}
+
+/* Stack language buttons vertically when in flex column */
+.nav-item.d-flex.flex-column .lang-btn {
+    margin: 0; /* Remove horizontal margin since they're stacked */
+}
+
+/* ===== CUSTOM HAMBURGER BUTTON ===== */
+.navbar-toggler.custom-toggler {
+    border: none !important;
+    background: rgba(139, 69, 19, 0.15) !important;
+    border-radius: 999px;
+    padding: 10px !important;
+    height: 40px !important;
+    width: 44px !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1050;
+    position: relative;
+    margin-left: auto;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+}
+
+.navbar-toggler.custom-toggler:focus {
+    box-shadow: none;
+    outline: 2px solid rgba(139, 69, 19, 0.3);
+    outline-offset: 2px;
+}
+
+.navbar-toggler.custom-toggler:hover {
+    background: rgba(139, 69, 19, 0.15) !important;
+}
+
+/* ===== HAMBURGER LINES ===== */
+.custom-toggler .line {
+    display: block !important;
+    width: 100%;
+    height: 3px;
+    background-color: #3b6337;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+/* ===== NAV ACTION BUTTONS (Login/Register) — minimalist ===== */
+.nav-action-btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1.1em;
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: color 0.2s ease,
+                background-color 0.2s ease,
+                border-color 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Login — outlined, subtle box around the text */
+.nav-action-btn--ghost {
+    background: transparent;
+    color: var(--brand-dark-text, #333);
+    border-color: rgba(59, 99, 55, 0.35);
+}
+
+.nav-action-btn--ghost:hover,
+.nav-action-btn--ghost:focus-visible {
+    color: #3b6337;
+    background: rgba(59, 99, 55, 0.06);
+    border-color: #3b6337;
+}
+
+/* Register — simple solid pill, single calm color */
+.nav-action-btn--primary {
+    background: #3b6337;
+    color: #ffffff;
+    border-color: #3b6337;
+}
+
+.nav-action-btn--primary:hover,
+.nav-action-btn--primary:focus-visible {
+    background: #2d4d2a;
+    border-color: #2d4d2a;
+    color: #ffffff;
+}
+
+.nav-action-btn:focus-visible {
+    outline: 2px solid rgba(59, 99, 55, 0.35);
+    outline-offset: 2px;
+}
+
+/* =======================================================
+   MANUAL MENU POSITIONING
+   ======================================================= */
+@media (min-width: 992px) {
+    .navbar-nav {
+        margin-right: 10px !important;
+    }
+}

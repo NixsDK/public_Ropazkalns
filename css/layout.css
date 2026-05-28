@@ -1,0 +1,492 @@
+/* ================================================================
+   LAYOUT - Page structure, sections, grids (rental, camping, hero)
+   ================================================================ */
+
+/* Hero Section */
+.hero-container {
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    box-sizing: border-box;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7);
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px 35px;
+    border-radius: 16px;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #2c3e50;
+    box-sizing: border-box;
+}
+
+.hero-overlay h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-family: var(--font-primary);
+}
+
+.hero-overlay p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #5a6c7d;
+    line-height: 1.6;
+    font-family: var(--font-primary);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.hero-buttons .btn-rent {
+    flex: 1 1 180px;
+    max-width: 260px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+/* Tablet: keep buttons side-by-side but allow them to shrink */
+@media (max-width: 900px) {
+    .hero-overlay {
+        padding: 32px 24px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 2.4rem;
+    }
+
+    .hero-overlay p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        gap: 12px;
+    }
+
+    .hero-buttons .btn-rent {
+        flex: 1 1 140px;
+        min-width: 0;
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+    }
+}
+
+/* Small tablets / large phones: stack buttons vertically */
+@media (max-width: 600px) {
+    .hero-container {
+        min-height: auto;
+        padding: 40px 16px;
+    }
+
+    .hero-overlay {
+        padding: 28px 20px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-overlay p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-buttons .btn-rent {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Intro Section */
+.intro-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    background: #ffffff;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+/* Kempings Section */
+.kempings-section {
+    margin: 48px 0;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.kempings-section i {
+    font-size: var(--text-heading-md);
+    color: #228b22;
+}
+
+.kempings-section h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    font-family: var(--font-primary);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+}
+
+/* Rental Cards grid (layout only; .rental-card stays in components) */
+.rental-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+.rental-cards.rent-section {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+}
+
+/* Tablet: 2 columns for the 3-card camping grid so images/text stay readable */
+@media (max-width: 900px) {
+    .rental-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .rental-cards.rent-section {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+
+    .kempings-section {
+        padding: 22px;
+        margin: 32px 0;
+    }
+
+    .kempings-section h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* Mobile: stack all rental cards in a single column so images and labels are fully visible */
+@media (max-width: 600px) {
+    .intro-section {
+        padding: 32px 14px;
+        margin-top: 24px;
+    }
+
+    .rental-cards,
+    .rental-cards.rent-section {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    .rental-card img {
+        height: 200px;
+    }
+
+    .card-label {
+        font-size: 1.05rem;
+        padding: 0.85rem 1.1rem;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .kempings-section {
+        padding: 18px 16px;
+        margin: 24px 0;
+        border-radius: 14px;
+    }
+
+    .kempings-section h2 {
+        font-size: 1.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .kempings-section i {
+        font-size: 1.4rem;
+    }
+}
+
+/* Rental Section - used on Sauna, Hot Tub, Camping, Tent, etc. */
+.rental-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(34, 139, 34, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Rentals/* — vertical gap from navbar & footer (~1–2cm); hero pages use separate rule (no top rem gap) */
+main.rental-section:not(.rental-with-hero),
+main.rental-details-section:not(.rental-with-hero),
+main:not(.rental-with-hero):has(> .rental-section.private-events-section) {
+    margin-top: clamp(1rem, 1.5cm, 2cm);
+    margin-bottom: clamp(1rem, 1.5cm, 2cm);
+}
+
+/* Forest hero sits full-width under navbar — no extra top margin */
+main.rental-with-hero {
+    margin-top: 0;
+    margin-bottom: clamp(1rem, 1.5cm, 2cm);
+}
+
+/* Rentals/RentalPrices.php (top-level <section>, no <main>) */
+body > section.rental-section {
+    margin-top: clamp(1rem, 1.5cm, 2cm);
+    margin-bottom: clamp(1rem, 1.5cm, 2cm);
+}
+
+.reservation-heading-section {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(34, 139, 34, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.reservation-heading-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+    font-family: var(--font-primary);
+    letter-spacing: 0.5px;
+}
+
+.rental-section.booking-section {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Intro under forest hero (Contact booking pages — same rhythm as private events) */
+.rental-with-hero .rental-section.booking-section > .rental-subtitle {
+    font-size: 1.15rem;
+    color: #5a6570;
+    margin: 0 auto 1.75rem;
+    max-width: 720px;
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--font-primary);
+    line-height: 1.55;
+}
+
+/* Same card chrome as .rental-section (rental listing pages, etc.) */
+.rental-section.original-design {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(34, 139, 34, 0.1);
+    padding: 60px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--font-primary);
+}
+
+/* Match .rental-section h2 — same specificity as before */
+.rental-section.original-design h2 {
+    font-size: var(--text-heading-lg);
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    border-left: 4px solid #1a5f1a;
+    padding-left: 1rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    position: relative;
+}
+
+.rental-section.original-design h2::after {
+    display: none;
+}
+
+/* Subheads (Cenas, Galerija): align with price-category / rental pages */
+.rental-section.original-design h3 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: var(--font-semibold);
+    font-family: var(--font-primary);
+}
+
+.rental-section.original-design table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0;
+}
+
+.rental-section.original-design table th,
+.rental-section.original-design table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.rental-section.original-design table th {
+    background: #f8f9fa;
+    font-weight: var(--font-semibold);
+    color: #2c3e50;
+    border-bottom: 3px solid #228b22;
+}
+
+.rental-section.original-design table th:last-child,
+.rental-section.original-design table td:last-child {
+    border-right: none;
+}
+
+.rental-section.original-design table tr:hover {
+    background: rgba(34, 139, 34, 0.05);
+}
+
+.rental-section.original-design .price-note {
+    font-style: italic;
+    color: #6c757d;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.rental-section.original-design .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 1.5rem;
+}
+
+.rental-section.original-design .gallery-row img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 3px solid #ffffff;
+    cursor: pointer;
+}
+
+.rental-section.original-design .gallery-row img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    border-color: #228b22;
+}
+
+.rental-section h2 {
+    font-size: var(--text-heading-lg);
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    border-left: 4px solid #1a5f1a;
+    padding-left: 1rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    position: relative;
+}
+
+.rental-section p {
+    font-size: var(--text-body);
+    color: #5a6c7d;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+/* Some rental pages: .rental-section already supplies rounded card; no extra overrides */
+
+.rental-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.rental-text {
+    flex: 1 1 55%;
+}
+
+.rental-image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rental-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

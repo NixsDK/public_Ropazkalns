@@ -1,0 +1,300 @@
+/* Activities / Around — aligned with gallery + rental card chrome (site palette) */
+
+.activities-around-page {
+    min-height: 100vh;
+    background-color: var(--brand-beige, #ede8d0);
+    padding-bottom: 3rem;
+    margin-top: 0;
+    margin-bottom: clamp(1rem, 1.5cm, 2cm);
+}
+
+/* Hero: photo + logo + title from Rules.css (same pattern as About legal pages).
+   Hero sits outside .activities-around-inner so it’s full width. */
+
+.activities-around-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Sub-navigation tabs */
+.activities-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.activities-subnav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.6rem;
+    border-radius: 999px;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-nav);
+    font-family: var(--font-primary);
+    text-decoration: none;
+    color: var(--brand-dark-text, #333);
+    border: 1px solid rgba(34, 139, 34, 0.35);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.activities-subnav-link:hover {
+    color: var(--brand-brown, #8b4513);
+    border-color: rgba(139, 69, 19, 0.35);
+}
+
+.activities-subnav-link.is-active {
+    background: linear-gradient(135deg, #1a5f1a, #2d8f2d);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.activities-subnav-link.is-active:hover {
+    color: #ffffff;
+    filter: brightness(1.05);
+}
+
+/* Card grid: white panel, rounded corners */
+.activities-cards-wrap {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(34, 139, 34, 0.1);
+    padding: 2rem 1.5rem 2.5rem;
+}
+
+.activities-places-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.activities-place-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(34, 139, 34, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.activities-place-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    border-color: rgba(34, 139, 34, 0.35);
+}
+
+.activities-place-card:focus-visible {
+    outline: 2px solid var(--brand-green, #508c39);
+    outline-offset: 3px;
+}
+
+.activities-place-card-media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #e9ecef;
+}
+
+.activities-place-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.activities-place-card-body {
+    padding: 1.1rem 1.15rem 1.35rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.activities-place-card-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: var(--font-semibold);
+    color: #2c3e50;
+    font-family: var(--font-primary);
+    line-height: 1.3;
+}
+
+.activities-place-card-desc {
+    margin: 0;
+    font-size: var(--text-nav);
+    color: #5a6c7d;
+    line-height: 1.55;
+    font-family: var(--font-primary);
+}
+
+@media (max-width: 992px) {
+    .activities-places-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .activities-places-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activities-cards-wrap {
+        padding: 1.75rem 1.25rem;
+    }
+}
+
+/* Activity detail (Detail.php) — image left, text right, cream panel */
+.activities-detail-page .activity-detail-back {
+    margin: 0 0 1.25rem;
+}
+
+.activity-detail-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-primary);
+    font-size: var(--text-nav);
+    font-weight: var(--font-semibold);
+    color: var(--brand-dark-text, #333);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.activity-detail-back-link:hover {
+    color: var(--brand-brown, #8b4513);
+}
+
+.activity-detail-panel {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(34, 139, 34, 0.1);
+    overflow: hidden;
+}
+
+.activity-detail-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 320px;
+}
+
+.activity-detail-media {
+    position: relative;
+    min-height: 280px;
+    background: #e9ecef;
+}
+
+.activity-detail-media > img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.activity-detail-media-badge {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: min(28%, 140px);
+    opacity: 0.92;
+    pointer-events: none;
+}
+
+.activity-detail-media-badge img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+.activity-detail-body {
+    position: relative;
+    padding: 2rem 1.75rem 2.25rem;
+    background: #faf9f6;
+    overflow: hidden;
+}
+
+.activity-detail-body-watermark {
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/RopazkalnsLogo2resize.png");
+    background-repeat: no-repeat;
+    background-position: 85% 55%;
+    background-size: min(55%, 220px);
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.activity-detail-heading {
+    position: relative;
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #2c3e50;
+    font-family: var(--font-primary);
+    line-height: 1.25;
+}
+
+.activity-detail-intro {
+    position: relative;
+    margin: 0 0 1.1rem;
+    font-size: var(--text-nav);
+    line-height: 1.6;
+    color: #5a6c7d;
+    font-family: var(--font-primary);
+}
+
+.activity-detail-list {
+    position: relative;
+    margin: 0;
+    padding-left: 1.15rem;
+    font-size: var(--text-nav);
+    line-height: 1.65;
+    color: #5a6c7d;
+    font-family: var(--font-primary);
+}
+
+.activity-detail-list li {
+    margin-bottom: 0.45rem;
+}
+
+.activity-detail-list li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .activity-detail-split {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-detail-media {
+        min-height: 240px;
+    }
+
+    .activity-detail-media > img {
+        min-height: 240px;
+        max-height: 420px;
+    }
+}
+
+@media (max-width: 576px) {
+    .activity-detail-body {
+        padding: 1.5rem 1.25rem 1.75rem;
+    }
+}

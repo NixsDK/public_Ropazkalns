@@ -1,0 +1,19 @@
+{
+  "name": "ropazkalns",
+  "version": "1.0.0",
+  "description": "Ropažkalns outdoor activities and accommodation website",
+  "scripts": {
+    "build": "tailwindcss -i css/tailwind.css -o css/main.css",
+    "watch": "tailwindcss -i css/tailwind.css -o css/main.css --watch",
+    "prod": "tailwindcss -i css/tailwind.css -o css/main.css --minify"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "dotenv": "^17.4.2",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6"
+  }
+}
