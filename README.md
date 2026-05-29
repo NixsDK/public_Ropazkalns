@@ -6,10 +6,10 @@ This repo is focused on **UI/design and page flow**.
 ## Quick Start
 
 ### 1) Clone the repository
-
+```bash
 git clone https://github.com/NixsDK/public_Ropazkalns.git
 cd public_Ropazkalns
-
+```
 ### 2) Install PHP dependencies (vendor)
 If the site does not load after cloning, install Composer dependencies:
 composer install
